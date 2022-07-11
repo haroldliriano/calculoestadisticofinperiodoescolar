@@ -1,0 +1,85 @@
+body {
+    background-color: lightsteelblue;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+#table1 {
+    margin: auto;
+    background-color: azure;
+}
+
+#table2 {
+    margin: auto;
+    /* margin-top: 100px;*/
+    background-color: azure;
+}
+
+.color1 {
+    background-color: #ccc;
+}
+
+.color2 {
+    background-color: #eee;
+}
+
+h1 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input {
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #555;
+    color: white;
+}
+
+button:active {
+    background-color: rgb(1, 255, 1);
+    color: black;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+#ttlEstAgr {
+    background-color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+input[type="date"] {
+    width: 95%;
+}
+
+input[type="number"] {
+    width: 34px;
+}
+
+select {
+    height: 21px;
+}
+
+#total {
+    font-weight: bold;
+}
+
+#sumTotal {
+    font-weight: bold;
+}

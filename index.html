@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="code.js"></script>
+</head>
+
+<body>
+    <h1>calculo Estadístico de fin de año escolar</h1>
+    <hr>
+    <table border id="table1">
+        <thead>
+            <tr>
+                <th rowspan="2">CONDICIÓN</th>
+                <th rowspan="2">SEXO</th>
+                <th colspan="3" rowspan="2">NACIMIENTO</th>
+                <th><button id="btAgregar" onclick="agregar()">Agregar</button></th>
+            </tr>
+
+            <tr>
+                <th><button onclick="eliminar()">Eliminar</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select name="condition" id="condition">
+                        <option value="apr">APROBADO</option>
+                        <option value="rep">REPROBADO</option>
+                        <option value="apl">APLAZADO</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="sexo" id="sexo">
+                        <option value="f">FEMENINO</option>
+                        <option value="m">MASCULINO</option>
+                    </select>
+                </td>
+                <td colspan="3">
+                    <input type="date" id="date" name="date" value="2006-07-22" min="2000-01-01" max="2015-12-31">
+                </td>
+
+                <td><button onclick="reset()">Reset</button></td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><b>Total de Estudiantes Agregados</b></td>
+                <td style="background-color: white;">
+                    <p id="ttlEstAgr">0</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <hr>
+    <table border="2px" id="table2">
+
+        <thead>
+            <tr>
+                <th rowspan="2" class="color1">CONDICIÓN DE FIN DE AÑO ESCOLAR </th>
+                <th rowspan="2" class="color1">SEXO</th>
+                <th colspan="4" class="color1">CANTIDAD DE ESTUDIANTES POR EDADES</th>
+                <th><button onclick="calcular()">Calcular</button></th>
+            </tr>
+            <tr class="color2">
+                <th><input id="ageMin1" type="number" min="10" max="22" value="13"> - <input id="ageMax1" type="number"
+                        min="10" max="22" value="14"> años</th>
+                <th><input id="ageMin2" type="number" min="10" max="22" value="15"> - <input id="ageMax2" type="number"
+                        min="10" max="22" value="16"> años</th>
+                <th><input id="ageMin3" type="number" min="10" max="22" value="17"> - <input id="ageMax3" type="number"
+                        min="10" max="22" value="18"> años</th>
+                <th>CASOS EXEPCIONALES</th>
+                <th class="color1">TOTALES</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td rowspan="3"><b>APROBADO</b></td>
+                <td>FEMENINO</td>
+                <td id="aproFemEd1"></td>
+                <td id="aproFemEd2"></td>
+                <td id="aproFemEd3"></td>
+                <td id="aproFemEd4"></td>
+                <td id="aproFem"></td>
+            </tr>
+
+            <tr>
+                <td>MASCULINO</td>
+                <td id="aproMasEd1"></td>
+                <td id="aproMasEd2"></td>
+                <td id="aproMasEd3"></td>
+                <td id="aproMasEd4"></td>
+                <td id="aproMas"></td>
+            </tr>
+            <tr class="color2">
+                <td>TOTAL</td>
+                <td id="aproEd1"></td>
+                <td id="aproEd2"></td>
+                <td id="aproEd3"></td>
+                <td id="aproEd4"></td>
+                <td id="apro"></td>
+            </tr>
+            <tr>
+                <td rowspan="3"><b>REPROBADO</b></td>
+                <td>FEMENINO</td>
+                <td id="repFemEd1"></td>
+                <td id="repFemEd2"></td>
+                <td id="repFemEd3"></td>
+                <td id="repFemEd4"></td>
+                <td id="repFem"></td>
+            </tr>
+            <tr>
+                <td>MASCULINO</td>
+                <td id="repMasEd1"></td>
+                <td id="repMasEd2"></td>
+                <td id="repMasEd3"></td>
+                <td id="repMasEd4"></td>
+                <td id="repMas"></td>
+            </tr>
+            <tr class="color2">
+                <td>TOTAL</td>
+                <td id="repEd1"></td>
+                <td id="repEd2"></td>
+                <td id="repEd3"></td>
+                <td id="repEd4"></td>
+                <td id="rep"></td>
+            </tr>
+            <tr>
+                <td rowspan="3"><b>APLAZADO</b></td>
+                <td>FEMENINO</td>
+                <td id="aplFemEd1"></td>
+                <td id="aplFemEd2"></td>
+                <td id="aplFemEd3"></td>
+                <td id="aplFemEd4"></td>
+                <td id="aplFem"></td>
+            </tr>
+            <tr>
+                <td>MASCULINO</td>
+                <td id="aplMasEd1"></td>
+                <td id="aplMasEd2"></td>
+                <td id="aplMasEd3"></td>
+                <td id="aplMasEd4"></td>
+                <td id="aplMas"></td>
+            </tr>
+            <tr class="color2">
+                <td>TOTAL</td>
+                <td id="aplEd1"></td>
+                <td id="aplEd2"></td>
+                <td id="aplEd3"></td>
+                <td id="aplEd4"></td>
+                <td id="apl"></td>
+            </tr>
+            <tr>
+                <td colspan="6" id="total">TOTAL</td>
+                <td id="sumTotal"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Prueba de salida-->
+    <h1>
+        <script>
+
+        </script>
+
+    </h1>
+
+</body>
+
+</html>
